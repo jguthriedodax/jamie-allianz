@@ -46,6 +46,10 @@ public class GeneratorService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
+	/**
+	 * Class that generates dummy data for testing
+	 * @throws InterruptedException
+	 */
 	public GeneratorService() throws InterruptedException {
 
 		ScheduledExecutorService execService = Executors.newScheduledThreadPool(2);
