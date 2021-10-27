@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name="model.location.District" table="District">
+
+		<id name="id" type="java.lang.Long" column="id">
+			<generator class="native"/>
+		</id>
+
+		<property name="name" column="name" type="java.lang.String"/>
+
+ 		<many-to-one name="city" column="city_id" class="model.location.City" not-null="true"/>
+
+		<set name="sensors" inverse="true">
+			<key column="district_id"/>
+			<one-to-many class="model.Sensor"/>
+		</set>
+	</class>
+</hibernate-mapping>
